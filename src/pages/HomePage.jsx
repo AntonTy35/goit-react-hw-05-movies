@@ -19,7 +19,6 @@ const Home = () => {
           title,
         }));
 
-        // console.log('movieItems', trendingList);
         setTrending(trendingList);
       } catch (error) {
         console.log(error);
