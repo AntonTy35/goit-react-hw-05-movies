@@ -27,8 +27,8 @@ const MoviesDetails = () => {
 
   return (
     <main>
-      <SingleMovie singleMovie={movie} />
       <BackLink to={backLinkHref}>Go back </BackLink>
+      <SingleMovie singleMovie={movie} />
 
       <Outlet />
     </main>

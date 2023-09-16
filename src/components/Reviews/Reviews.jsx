@@ -1,25 +1,26 @@
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+
+import { getMovieReviews } from '../../api';
+// import { ReviewsH3, ReviewsP } from './Reviews.styled';
+
 const Reviews = () => {
+  const [reviews, setReviews] = useState([]);
+  const { movieId } = useParams();
+  useEffect(() => {
+    getMovieReviews(movieId).then(data => setReviews(data.results));
+  }, [movieId]);
   return (
-    <section>
-      <ul>
-        <li>
-          <b>CEO</b> - Gabrijela Vohu Manah
-        </li>
-        <li>
-          <b>Sales</b> - Darius Marianne
-        </li>
-        <li>
-          <b>Product</b> - Ségdae Jean-Pierre
-        </li>
-        <li>
-          <b>Marketing</b> - Melina Theotimos
-        </li>
-        <li>
-          <b>Engineering</b> - Gregor Ramadhani
-        </li>
-      </ul>
-    </section>
+    <ul>
+      {reviews.length > 0
+        ? reviews.map(({ id, author, content }) => (
+            <li key={id}>
+              <h3>{author}</h3>
+              <p>{content}</p>
+            </li>
+          ))
+        : "We don't have any reviews for this movie."}
+    </ul>
   );
 };
-
 export default Reviews;

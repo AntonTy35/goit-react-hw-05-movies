@@ -1,5 +1,4 @@
 import { NavLink, useLocation } from 'react-router-dom';
-// import { NavLink, List } from './MoviesList.styled';
 
 const MoviesList = ({ movies }) => {
   const location = useLocation();

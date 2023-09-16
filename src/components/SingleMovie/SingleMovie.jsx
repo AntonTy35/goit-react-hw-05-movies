@@ -1,6 +1,11 @@
-import { Loader } from 'components/Loader/Loader';
-import { Suspense } from 'react';
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import {
+  Wrapper,
+  Genres,
+  Title,
+  SubTitle,
+  Paragraph,
+} from './SingleMovie.styled';
 
 export const SingleMovie = ({ singleMovie }) => {
   const { poster_path, title, vote_average, overview, genres, release_date } =
@@ -8,31 +13,37 @@ export const SingleMovie = ({ singleMovie }) => {
   const voteAverage = (vote_average * 10).toFixed(2);
   const location = useLocation();
   console.log('singleMovie', singleMovie);
+
   return (
     <main>
-      <div>
+      <Wrapper>
         <img
-          src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+          src={
+            poster_path
+              ? `https://image.tmdb.org/t/p/w500${poster_path}`
+              : `https://placehold.jp/24/cccccc/ffffff/220x280.png?text=There is no photo`
+          }
           width={220}
           height={280}
           loading="lazy"
           alt="poster"
         />
         <div>
-          <h2>{title}</h2>
-          <h3>User score: {voteAverage}%</h3>
-          <h3>Overview</h3>
-          <p>{overview} </p>
-          <h3>Genres</h3>
-          <ul>
+          <Title>{title}</Title>
+          <SubTitle>User score: {voteAverage}%</SubTitle>
+          <SubTitle>Overview</SubTitle>
+          <Paragraph>{overview} </Paragraph>
+          <SubTitle>Genres</SubTitle>
+          <Genres>
             {genres &&
               genres.length &&
               genres.map(({ id, name }) => <li key={id}>{name}</li>)}
-          </ul>
-          <h3>Release</h3>
-          <p>{release_date} </p>
+          </Genres>
+          <SubTitle>Release</SubTitle>
+          <Paragraph>{release_date} </Paragraph>
         </div>
-      </div>
+      </Wrapper>
+      <hr />
       <div>
         <h4>Additional information</h4>
         <ul>
@@ -48,9 +59,7 @@ export const SingleMovie = ({ singleMovie }) => {
           </li>
         </ul>
       </div>
-      <Suspense fallback={<Loader />}>
-        <Outlet />
-      </Suspense>
+      <hr />
     </main>
   );
 };
