@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { Loader } from 'components/Loader/Loader';
 import { getTrendingList } from 'api';
 
 const Home = () => {
@@ -33,7 +34,7 @@ const Home = () => {
     <main>
       <h1>Trending today</h1>
       {loading ? (
-        <div>LOADING...</div>
+        <Loader />
       ) : (
         <ul>
           {trending.map(({ id, title }) => {

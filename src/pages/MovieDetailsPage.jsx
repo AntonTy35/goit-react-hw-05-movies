@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { BackLink } from '../components/BackLink';
 import { SingleMovie } from 'components/SingleMovie/SingleMovie';
 
-import { getMovieById } from '../api';
+import { getMovieById } from 'api';
 
 const MoviesDetails = () => {
   const { movieId } = useParams();
