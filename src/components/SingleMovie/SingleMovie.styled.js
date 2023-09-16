@@ -15,8 +15,8 @@ export const Genres = styled.ul`
 `;
 
 export const Title = styled.h2`
-  margin-top: 0;
-  margin-bottom: 5px;
+  margin: 0;
+  text-align: center;
 `;
 
 export const SubTitle = styled.h3`

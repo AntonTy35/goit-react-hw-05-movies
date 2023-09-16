@@ -30,7 +30,8 @@ export const SingleMovie = ({ singleMovie }) => {
         />
         <div>
           <Title>{title}</Title>
-          <SubTitle>User score: {voteAverage}%</SubTitle>
+          <SubTitle>User score</SubTitle>
+          <Paragraph>{voteAverage}%</Paragraph>
           <SubTitle>Overview</SubTitle>
           <Paragraph>{overview} </Paragraph>
           <SubTitle>Genres</SubTitle>
