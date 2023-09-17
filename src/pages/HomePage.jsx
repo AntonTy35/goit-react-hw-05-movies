@@ -14,7 +14,6 @@ const Home = () => {
       try {
         setLoading(true);
         const { results } = await getTrendingList();
-        console.log('results ', results);
         const trendingList = results.map(({ id, title }) => ({
           id,
           title,

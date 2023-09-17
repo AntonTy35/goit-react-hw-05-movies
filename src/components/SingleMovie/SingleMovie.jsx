@@ -12,7 +12,6 @@ export const SingleMovie = ({ singleMovie }) => {
     singleMovie;
   const voteAverage = (vote_average * 10).toFixed(2);
   const location = useLocation();
-  console.log('singleMovie', singleMovie);
 
   return (
     <main>
