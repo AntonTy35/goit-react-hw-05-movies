@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieCasts } from 'api';
-// import { ActorName, CastItem, CastList, Character } from './Cast.styled';
+import { Li, Ul } from './Cast.styled';
 
 const Cast = () => {
   const [cast, setCast] = useState([]);
@@ -12,9 +12,9 @@ const Cast = () => {
   }, [movieId]);
 
   return (
-    <ul>
+    <Ul>
       {cast.map(({ id, name, profile_path, character }) => (
-        <li key={id}>
+        <Li key={id}>
           <img
             src={
               profile_path
@@ -28,9 +28,9 @@ const Cast = () => {
           />
           <h4>{name}</h4>
           <p>Character: {character}</p>
-        </li>
+        </Li>
       ))}
-    </ul>
+    </Ul>
   );
 };
 
