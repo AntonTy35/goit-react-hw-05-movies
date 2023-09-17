@@ -8,7 +8,7 @@ export const Ul = styled.ul`
   justify-content: center;
 
   flex-wrap: wrap;
-  column-gap: 10px;
+  column-gap: 40px;
   list-style: none;
 `;
 
